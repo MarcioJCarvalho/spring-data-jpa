@@ -2,6 +2,7 @@ package br.com.mjc.spring.jpa.service;
 
 import java.util.List;
 import br.com.mjc.spring.jpa.entity.Aluno;
+import br.com.mjc.spring.jpa.entity.AvaliacaoFisica;
 import br.com.mjc.spring.jpa.entity.form.AlunoDTO;
 import br.com.mjc.spring.jpa.entity.form.AlunoUpdateDTO;
 
@@ -39,4 +40,11 @@ public interface IAlunoService {
      * @param id - id do Aluno que será removido.
      */
     void delete(Long id);
+
+    /**
+     * Retorna dodas as avaliações fisícas de acordo com o id do aluno
+     * @param id - id referente ao aluno
+     * @return - valiações fisícas de acordo com o id do aluno
+     */
+    List<AvaliacaoFisica> getAllAvaliacaoFisicaByAlunoId(Long id);
 }
