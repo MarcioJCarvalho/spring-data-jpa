@@ -2,6 +2,8 @@ package br.com.mjc.spring.jpa.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,13 +23,14 @@ public class AlunoController {
     @Autowired
     private AlunoServiceImpl service;    
 
+    
     @GetMapping
     public List<Aluno> getAll(){
         return service.getAll();
     }
 
     @PostMapping
-    public Aluno create(@RequestBody AlunoDTO form){
+    public Aluno create(@Valid @RequestBody AlunoDTO form){
         return service.create(form);
     }
 

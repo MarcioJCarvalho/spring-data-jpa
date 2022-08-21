@@ -1,10 +1,9 @@
 package br.com.mjc.spring.jpa.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.mjc.spring.jpa.entity.AvaliacaoFisica;
 import br.com.mjc.spring.jpa.entity.form.AvaliacaoFisicaDTO;
@@ -16,6 +15,11 @@ public class AvaliacaoFisicaController {
 
     @Autowired
     private AvaliacaoFisicaServiceImpl service;
+    
+    @GetMapping
+    public List<AvaliacaoFisica> getAll(){
+        return service.getAll();
+    }
 
     @PostMapping
     public AvaliacaoFisica create(@RequestBody AvaliacaoFisicaDTO form) {

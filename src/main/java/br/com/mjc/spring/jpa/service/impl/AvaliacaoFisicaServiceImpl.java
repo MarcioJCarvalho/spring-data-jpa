@@ -25,7 +25,7 @@ public class AvaliacaoFisicaServiceImpl implements IAvaliacaoFisicaService {
     public AvaliacaoFisica create(AvaliacaoFisicaDTO form) {
         AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica();
         Aluno aluno = alunoRepository.findById(form.getAlunoId()).get();
-
+        
         avaliacaoFisica.setAluno(aluno);
         avaliacaoFisica.setPeso(form.getPeso());
         avaliacaoFisica.setAltura(form.getAltura());
@@ -47,8 +47,7 @@ public class AvaliacaoFisicaServiceImpl implements IAvaliacaoFisicaService {
 
     @Override
     public List<AvaliacaoFisica> getAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return avaliacaoFisicaRepository.findAll();
     }
 
     @Override
